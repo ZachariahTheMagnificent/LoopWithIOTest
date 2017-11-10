@@ -12,7 +12,7 @@
 using Vector = math::Vector3<float>;
 
 //Use version with two loops
-#define TWO_LOOPS
+//#define TWO_LOOPS
 //Use direct value instead of pointer. Don't run with SEPARATE_POINTER
 //#define DIRECT_VALUE
 //separate target pointer from struct. Don't run with DIRECT_VALUE
@@ -220,7 +220,7 @@ void main ( )
 		}
 #else
 #if defined SEPARATE_POINTER && !defined DIRECT_VALUE
-		for ( auto missile_it = missiles.begin ( ), end = missiles.end ( ); missile_it != end; ++missile_it )
+		for ( auto missile_it = missiles.begin ( ), end = missiles.end ( ); missile_it != end; ++missile_it, ++target_it )
 		{
 			missile_it->Update ( delta_time, *target_it );
 #else
